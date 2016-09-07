@@ -1,0 +1,41 @@
+
+
+//Author    : Aadesh Salecha
+//Course    : Nand2Tetris
+//Date      : March 2016
+
+
+// This file is part of www and.n2tetris.org
+//  the book "The Elements of Computing Systems"
+// by Nisan  Schocken, MIT Press.
+// File name: projects/01/Or.hdl
+
+/**
+ * Or gate: 
+ * out = 1 if (a == 1  b == 1)
+ *       0 otherwise
+ */
+
+CHIP ZeroDetector {
+    IN a[16], b;
+    OUT out;
+
+    PARTS:
+    And(a = a[0], b = b, out = and0);
+    Or(a = a[1], b = and0, out = and1);
+    Or(a = a[2], b = and1, out = and2);
+    Or(a = a[3], b = and2, out = and3);
+    Or(a = a[4], b = and3, out = and4);
+    Or(a = a[5], b = and4, out = and5);
+    Or(a = a[6], b = and5, out = and6);
+    Or(a = a[7], b = and6, out = and7);
+    Or(a = a[8], b = and7, out = and8);
+    Or(a = a[9], b = and8, out = and9);
+    Or(a = a[10], b = and9, out =  and10);
+    Or(a = a[11], b =  and10, out =  and11);
+    Or(a = a[12], b =  and11, out =  and12);
+    Or(a = a[13], b =  and12, out =  and13);
+    Or(a = a[14], b =  and13, out =  and14);
+    Or(a = a[15], b =  and14, out =  and15);
+    Not(in =  and15, out = out);
+}
